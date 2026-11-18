@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mdink</title>
+<link rel="icon" href="icons/appIcon.png">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="vendor/hljs-github.min.css" id="hljs-light">
+<link rel="stylesheet" href="vendor/hljs-github-dark.min.css" id="hljs-dark" disabled>
+<style id="page-style"></style>
+</head>
+<body data-theme="light" class="tool-select">
+
+<!-- Icon sprite (stroke icons, 24x24) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-open" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-recent" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-toc" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-fit" viewBox="0 0 24 24"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9 14l3 3 3-3"/></symbol>
+    <symbol id="i-font" viewBox="0 0 24 24"><path d="M4 20 10 4h1l6 16M6.5 14h8"/><path d="M17 11h4M19 9v4" /></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+    <symbol id="i-select" viewBox="0 0 24 24"><path d="M5 3l14 7.5-6 1.5-2.5 6z"/></symbol>
+    <symbol id="i-hl" viewBox="0 0 24 24"><path d="M9 11l-6 6v3h9l3-3"/><path d="M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+    <symbol id="i-marker" viewBox="0 0 24 24"><path d="M9 11.9l8.1-8.1a2.85 2.85 0 1 1 4 4L13 15.9"/><path d="M7.1 14.9c-1.7 0-3 1.4-3 3 0 1.3-2.5 1.5-2 2 1.1 1.1 2.5 2 4 2 2.2 0 4-1.8 4-4a3 3 0 0 0-3-3z"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></symbol>
+    <symbol id="i-eraser" viewBox="0 0 24 24"><path d="M7 21l-4.3-4.3a1 1 0 0 1 0-1.4l10-10a1 1 0 0 1 1.4 0l5.6 5.6a1 1 0 0 1 0 1.4L13 21"/><path d="M22 21H7M5 11l9 9"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-15-6.7L3 13"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 15-6.7L21 13"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M17.9 17.9A10.4 10.4 0 0 1 12 19c-6.5 0-10-7-10-7a18.5 18.5 0 0 1 5.1-5.9M9.9 5.2A9.1 9.1 0 0 1 12 5c6.5 0 10 7 10 7a18.5 18.5 0 0 1-2.2 3.2M14.1 14.1a3 3 0 1 1-4.2-4.2M2 2l20 20"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+    <symbol id="i-reload" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></symbol>
+    <symbol id="i-keys" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></symbol>
+  </defs>
+</svg>
+
+<header id="topbar">
+  <div class="group">
+    <button class="btn" id="btn-open" title="Open file (Ctrl+O)"><svg><use href="#i-open"/></svg></button>
+    <div class="menu-wrap">
+      <button class="btn" id="btn-recent" title="Recent files"><svg><use href="#i-recent"/></svg></button>
+      <div class="menu" id="recent-menu" hidden></div>
+    </div>
+    <button class="btn" id="btn-back" title="Back (Alt+Left)" disabled><svg><use href="#i-back"/></svg></button>
+    <button class="btn" id="btn-toc" title="Outline (Ctrl+\)"><svg><use href="#i-toc"/></svg></button>
+  </div>
+  <div id="doc-title" title=""><span class="name">mdink</span></div>
+  <div class="group">
+    <button class="btn" id="btn-zoom-out" title="Zoom out (Ctrl+-)"><svg><use href="#i-minus"/></svg></button>
+    <button class="btn text" id="btn-zoom-reset" title="Reset zoom (Ctrl+0)">100%</button>
+    <button class="btn" id="btn-zoom-in" title="Zoom in (Ctrl+=)"><svg><use href="#i-plus"/></svg></button>
+    <button class="btn" id="btn-fit" title="Fit width"><svg><use href="#i-fit"/></svg></button>
+    <span class="sep"></span>
+    <button class="btn" id="btn-find" title="Find (Ctrl+F)"><svg><use href="#i-search"/></svg></button>
+    <div class="menu-wrap">
+      <button class="btn" id="btn-settings" title="Font &amp; appearance"><svg><use href="#i-font"/></svg></button>
+      <div class="menu panel" id="settings-panel" hidden>
+        <div class="row">
+          <label>Theme</label>
+          <div class="seg" id="seg-theme">
+            <button data-v="light"><svg><use href="#i-sun"/></svg>Light</button>
+            <button data-v="sepia"><svg><use href="#i-book"/></svg>Sepia</button>
+            <button data-v="dark"><svg><use href="#i-moon"/></svg>Dark</button>
+          </div>
+        </div>
+        <div class="row">
+          <label for="sel-font">Text font</label>
+          <select id="sel-font"></select>
+          <input id="inp-font" type="text" placeholder="Type any installed font name" hidden>
+        </div>
+        <div class="row">
+          <label for="sel-code-font">Code font</label>
+          <select id="sel-code-font"></select>
+        </div>
+        <div class="row two">
+          <div><label for="rng-size">Size <output id="out-size"></output></label><input id="rng-size" type="range" min="12" max="24" step="1"></div>
+          <div><label for="rng-lh">Line height <output id="out-lh"></output></label><input id="rng-lh" type="range" min="1.3" max="2.2" step="0.05"></div>
+        </div>
+        <div class="row two">
+          <div>
+            <label for="sel-paper">Page / paper</label>
+            <select id="sel-paper">
+              <option value="A4">A4</option>
+              <option value="Letter">Letter</option>
+              <option value="Legal">Legal</option>
+              <option value="A5">A5</option>
+            </select>
+          </div>
+          <div class="checks">
+            <label class="check"><input type="checkbox" id="chk-reload"> Auto-reload on change</label>
+            <label class="check"><input type="checkbox" id="chk-print-ink"> Print annotations</label>
+          </div>
+        </div>
+        <div class="row foot">
+          <button class="link" id="btn-shortcuts"><svg><use href="#i-keys"/></svg>Keyboard shortcuts</button>
+          <button class="link" id="btn-reset-settings">Reset</button>
+        </div>
+      </div>
+    </div>
+    <span class="sep"></span>
+    <button class="btn" id="btn-print" title="Print (Ctrl+P)"><svg><use href="#i-print"/></svg></button>
+    <button class="btn" id="btn-pdf" title="Save as PDF (Ctrl+Shift+S)"><svg><use href="#i-pdf"/></svg></button>
+  </div>
+</header>
+
+<div id="findbar" hidden>
+  <svg class="ico"><use href="#i-search"/></svg>
+  <input id="find-input" type="text" placeholder="Find in document" spellcheck="false">
+  <span id="find-status"></span>
+  <button class="btn sm" id="find-prev" title="Previous (Shift+Enter)"><svg><use href="#i-up"/></svg></button>
+  <button class="btn sm" id="find-next" title="Next (Enter)"><svg><use href="#i-down"/></svg></button>
+  <button class="btn sm" id="find-close" title="Close (Esc)"><svg><use href="#i-x"/></svg></button>
+</div>
+
+<main id="main">
+  <aside id="sidebar" hidden>
+    <div class="side-head">Outline</div>
+    <nav id="toc"></nav>
+  </aside>
+
+  <div id="viewport" tabindex="-1">
+    <div id="sizer">
+      <div id="page">
+        <article id="content" class="md"></article>
+        <svg id="ink-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div id="ink-notes"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="inkbar" role="toolbar" aria-label="Annotation tools">
+    <button class="tool active" data-tool="select" title="Select / read (V)"><svg><use href="#i-select"/></svg></button>
+    <button class="tool" data-tool="highlight" title="Highlighter: select text to highlight (H)"><svg><use href="#i-hl"/></svg></button>
+    <button class="tool" data-tool="pen" title="Pen (P)"><svg><use href="#i-pen"/></svg></button>
+    <button class="tool" data-tool="marker" title="Marker (M)"><svg><use href="#i-marker"/></svg></button>
+    <button class="tool" data-tool="note" title="Text note (T)"><svg><use href="#i-note"/></svg></button>
+    <button class="tool" data-tool="eraser" title="Eraser (E)"><svg><use href="#i-eraser"/></svg></button>
+    <div class="ink-sep"></div>
+    <div id="swatches"></div>
+    <div id="widths"></div>
+    <div class="ink-sep"></div>
+    <button class="tool" id="ink-undo" title="Undo (Ctrl+Z)"><svg><use href="#i-undo"/></svg></button>
+    <button class="tool" id="ink-redo" title="Redo (Ctrl+Y)"><svg><use href="#i-redo"/></svg></button>
+    <button class="tool" id="ink-toggle" title="Show / hide annotations"><svg><use href="#i-eye"/></svg></button>
+    <button class="tool danger" id="ink-clear" title="Clear all annotations on this file"><svg><use href="#i-trash"/></svg></button>
+  </div>
+</main>
+
+<footer id="statusbar">
+  <span id="st-path"></span>
+  <span class="grow"></span>
+  <span id="st-stats"></span>
+</footer>
+
+<div id="sel-pop" hidden>
+  <button data-c="#ffe066" title="Highlight yellow" style="--c:#ffe066"></button>
+  <button data-c="#b2f2bb" title="Highlight green" style="--c:#b2f2bb"></button>
+  <button data-c="#a5d8ff" title="Highlight blue" style="--c:#a5d8ff"></button>
+  <button data-c="#fcc2d7" title="Highlight pink" style="--c:#fcc2d7"></button>
+  <span class="pop-sep"></span>
+  <button class="ico" data-act="copy" title="Copy"><svg><use href="#i-copy"/></svg></button>
+</div>
+
+<div id="drop-hint" hidden><div>Drop a Markdown file to open it</div></div>
+<div id="toast" hidden></div>
+
+<div id="modal" hidden>
+  <div class="modal-card">
+    <button class="btn sm close" data-close title="Close"><svg><use href="#i-x"/></svg></button>
+    <h3>Keyboard shortcuts</h3>
+    <table class="keys">
+      <tr><td><kbd>Ctrl</kbd>+<kbd>O</kbd></td><td>Open file</td><td><kbd>V</kbd></td><td>Select / read</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Print</td><td><kbd>H</kbd></td><td>Highlighter</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td><td>Save as PDF</td><td><kbd>P</kbd></td><td>Pen</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Find</td><td><kbd>M</kbd></td><td>Marker</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>+</kbd> / <kbd>-</kbd> / <kbd>0</kbd></td><td>Zoom</td><td><kbd>T</kbd></td><td>Text note</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+wheel</td><td>Zoom</td><td><kbd>E</kbd></td><td>Eraser</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>\</kbd></td><td>Outline</td><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Y</kbd></td><td>Undo / redo</td></tr>
+      <tr><td><kbd>F5</kbd></td><td>Reload file</td><td><kbd>Esc</kbd></td><td>Back to select</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>←</kbd></td><td>Back (after a link)</td><td><kbd>D</kbd></td><td>Toggle dark theme</td></tr>
+    </table>
+  </div>
+</div>
+
+<script src="js/neutralino.js"></script>
+<script src="vendor/marked.umd.js"></script>
+<script src="vendor/marked-alert.umd.js"></script>
+<script src="vendor/marked-footnote.umd.js"></script>
+<script src="vendor/purify.min.js"></script>
+<script src="vendor/highlight.min.js"></script>
+<script src="js/ink.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

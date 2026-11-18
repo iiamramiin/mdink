@@ -1,0 +1,28 @@
+{
+  "name": "mdink",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tiny portable Markdown viewer for Windows with diagrams, math, print/PDF and ink annotations.",
+  "license": "MIT",
+  "scripts": {
+    "vendor": "node scripts/vendor.js",
+    "setup": "npm run vendor && neu update",
+    "dev": "npm run vendor && neu run",
+    "build": "npm run vendor && neu build --release --embed-resources --clean && node scripts/postbuild.js"
+  },
+  "devDependencies": {
+    "@neutralinojs/neu": "^11.8.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/vazirmatn": "^5.3.0",
+    "@highlightjs/cdn-assets": "^11.12.0",
+    "@neutralinojs/lib": "^6.10.0",
+    "dompurify": "^3.4.18",
+    "katex": "~0.16.22",
+    "marked": "^18.2.1",
+    "marked-alert": "^2.1.2",
+    "marked-footnote": "^1.4.0",
+    "marked-katex-extension": "^5.1.13",
+    "mermaid": "^12.3.0"
+  }
+}
