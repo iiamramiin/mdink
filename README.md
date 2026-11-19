@@ -4,6 +4,15 @@
 
 <p align="center">A tiny, portable Markdown viewer for Windows — with diagrams, math, print / PDF, and pen & highlighter annotations.<br>One <code>.exe</code>, about 10 MB. No installer, no runtime to download.</p>
 
+<p align="center">
+  <a href="https://github.com/iiamramiin/mdink/releases/latest/download/mdink-win-x64.zip"><img src="https://img.shields.io/badge/Download%20for%20Windows-x64%20portable-2563eb?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows"></a>
+</p>
+<p align="center">
+  <a href="https://github.com/iiamramiin/mdink/releases/latest"><img src="https://img.shields.io/github/v/release/iiamramiin/mdink?label=latest&color=4c6ef5" alt="Latest release"></a>
+  <img src="https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-555" alt="Windows 10 | 11">
+  <img src="https://img.shields.io/github/license/iiamramiin/mdink?color=555" alt="MIT license">
+</p>
+
 ---
 
 ## Features
@@ -20,7 +29,7 @@
 
 ## Download & run
 
-1. Grab `mdink-win-x64.zip` from [Releases](../../releases) and unzip it anywhere (a USB stick works).
+1. **[Download mdink-win-x64.zip](https://github.com/iiamramiin/mdink/releases/latest/download/mdink-win-x64.zip)** (or pick a version from [Releases](https://github.com/iiamramiin/mdink/releases)) and unzip it anywhere — a USB stick works.
 2. Double-click `mdink.exe`.
 3. *(Optional)* run `add-to-open-with.bat` once, then right-click any `.md` file → **Open with → Choose another app → mdink → Always**.
 
